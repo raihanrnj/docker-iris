@@ -8,14 +8,14 @@ The Iris Dataset contains four features (length and width of sepals and petals) 
 ```
  git clone https://github.com/ajeetraina/docker-iris
  cd docker-iris 
- docker image build -t docker-iris:v1.0 . 
+ docker image build -t ajeetraina/docker-iris:1.0.0 . 
 ```
 
 
 ## Running the  container 
 
 ```
- docker run --rm --name docker-iris -p 8080:8080 -d docker-iris:v1.0  ` 
+ docker run --rm --name docker-iris -p 8080:8080 -d ajeetraina/docker-iris:1.0.0  ` 
 ```
 
 ## Accessing the app
