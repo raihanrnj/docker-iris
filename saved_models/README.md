@@ -1,7 +1,7 @@
 
 # Models
 
-This section containss two model files:
+This section contains two model files:
 
 - 01.knn_with_iris_dataset.pkl & 
 - 02.iris_label_encoder.pkl
