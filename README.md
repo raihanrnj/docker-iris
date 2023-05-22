@@ -1,34 +1,27 @@
-This is a simple iris flower classification model deployment project as flask app.
+## A Simple IRIS Flower Classification Model Deployment project 
 
-## Directly run on Docker without building
+The Iris Dataset contains four features (length and width of sepals and petals) of 50 samples of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). These measures were used to create a linear discriminant model to classify the species. The dataset is often used in data mining, classification and clustering examples and to test algorithms.
 
-`  docker run --rm -d -p 8080:8080 erkansirin78/flask-iris-classification:2021-3 `
 
-## Build an image (Dockerize) and run on Docker container
-- Download project
-` git clone https://github.com/erkansirin78/flask-iris-classification.git ` 
+## Building a Docker Image
 
-` cd flask-iris-classification `
+```
+ git clone https://github.com/ajeetraina/docker-iris
+ cd docker-iris 
+ docker image build -t docker-iris:v1.0 . 
+```
 
-- Build image 
-` docker image build -t my_flask_iris:1.0 . ` 
 
-- Run container 
-` docker run --rm --name flask_iris -p 8080:8080 -d my_flask_iris:1.0 ` 
+## Running the  container 
 
-- Open browser http://localhost:8080/
+```
+ docker run --rm --name docker-iris -p 8080:8080 -d docker-iris:v1.0  ` 
+```
 
-Enjoy your predictions.
+## Accessing the app
 
-## On Kubernetes
-- You can deploy the model/app on Kubernetes with deployment object.
+Open browser http://localhost:8080/
 
-- You can deploy this model/app on Openshift just using git project url with OpenShift build menu.
 
-Input web ui:
 
-![Input web ui](images/input_form.png "Input web ui")
 
-Predictions:
-
-![Predictions](images/prediction_result.png "Predictions")
