@@ -1,13 +1,17 @@
+# Import necessary modules and packages
 from flask import Flask, request, jsonify, session, url_for, redirect, render_template
 import joblib
 
 from flower_form import FlowerForm
 
+# The code loads the machine learning model (01.knn_with_iris_dataset.pkl) and label encoder (02.iris_label_encoder.pkl) using joblib.load.
+# These models will be used for making predictions.
 classifier_loaded = joblib.load("saved_models/01.knn_with_iris_dataset.pkl")
 encoder_loaded = joblib.load("saved_models/02.iris_label_encoder.pkl")
 
 
 # prediction function
+# The make_prediction function takes the loaded model, encoder, and a JSON object containing the input features for a flower. 
 def make_prediction(model, encoder, sample_json):
     # parse input from request
     SepalLengthCm = sample_json['SepalLengthCm']
@@ -26,10 +30,12 @@ def make_prediction(model, encoder, sample_json):
 
     return prediction_real[0]
 
-
+# An instance of the Flask application is created using Flask(__name__).
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
 
+# Route Definitions:
+# The root route ("/") is defined using the @app.route decorator. This route handles both GET and POST requests.
 
 @app.route("/", methods=['GET','POST'])
 def index():
@@ -49,7 +55,7 @@ def index():
 classifier_loaded = joblib.load("saved_models/01.knn_with_iris_dataset.pkl")
 encoder_loaded = joblib.load("saved_models/02.iris_label_encoder.pkl")
 
-
+# The prediction route ("/prediction") is defined to display the prediction results
 @app.route('/prediction')
 def prediction():
     content = {'SepalLengthCm': float(session['SepalLengthCm']), 'SepalWidthCm': float(session['SepalWidthCm']),
