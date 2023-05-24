@@ -6,9 +6,9 @@ The Iris Dataset contains four features (length and width of sepals and petals) 
 ## Building a Docker Image
 
 ```
- git clone https://github.com/ajeetraina/docker-iris
+ git clone https://github.com/eeveeta/docker-iris
  cd docker-iris 
- docker image build -t ajeetraina/docker-iris:1.0.0 . 
+ docker image build -t eeveeta/docker-iris:1.0.0 . 
 ```
 
 
